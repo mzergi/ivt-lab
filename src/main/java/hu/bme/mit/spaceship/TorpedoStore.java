@@ -20,7 +20,7 @@ public class TorpedoStore {
 
   private Random rand;
 
-  private static final Logger LOGGER = Logger.getLogger(TorpedoStore.class.getName());
+  private static final Logger logger = Logger.getLogger(TorpedoStore.class.getName());
 
   public TorpedoStore(int numberOfTorpedos){
     this.torpedoCount = numberOfTorpedos;
@@ -28,7 +28,7 @@ public class TorpedoStore {
       this.rand = SecureRandom.getInstanceStrong();
     }
     catch(NoSuchAlgorithmException e){
-      LOGGER.log(Level.SEVERE, e.toString());
+      logger.log(Level.SEVERE, e.toString());
     }
     // update failure rate if it was specified in an environment variable
     String failureEnv = System.getenv("IVT_RATE");
